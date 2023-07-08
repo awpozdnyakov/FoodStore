@@ -22,10 +22,7 @@ class HomeCoordinator: NavigationCoordinator<HomeRoute> {
         switch route {
             
         case .home:
-            let viewController = UIViewController()
-            viewController.view.backgroundColor = .gray
-            return .push(viewController)
-//            return .push(buildHomeScreen())
+            return .push(buildHomeScreen())
         }
     }
     

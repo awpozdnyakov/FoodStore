@@ -20,8 +20,8 @@ class MainTabBarCoordinator: TabBarCoordinator<TabBarRoute> {
     private let profileRouter: StrongRouter<ProfileRoute>
     
     convenience init() {
-        UITabBar.appearance().tintColor = UIColor.blue
-        UITabBar.appearance().unselectedItemTintColor = UIColor.gray
+        UITabBar.appearance().tintColor = Asset.Colors.blue.color
+        UITabBar.appearance().unselectedItemTintColor = Asset.Colors.gray.color
         
         if #available(iOS 15.0, *) {
             let appearance = UITabBarAppearance()
@@ -31,16 +31,16 @@ class MainTabBarCoordinator: TabBarCoordinator<TabBarRoute> {
         
 
         let homeCoordinator = HomeCoordinator()
-        homeCoordinator.rootViewController.tabBarItem = UITabBarItem(title: "Главная", image: UIImage(systemName: "eraser"), tag: 0)
+        homeCoordinator.rootViewController.tabBarItem = UITabBarItem(title: L10n.home, image: Asset.Images.home.image, tag: 0)
         
         let findCoordinator = FindCoordinator()
-        findCoordinator.rootViewController.tabBarItem = UITabBarItem(title: "Главная", image: UIImage(systemName: "eraser"), tag: 1)
+        findCoordinator.rootViewController.tabBarItem = UITabBarItem(title: L10n.find, image: Asset.Images.find.image, tag: 1)
 
         let cartCorrdinator = CartCoordinator()
-        cartCorrdinator.rootViewController.tabBarItem = UITabBarItem(title: "Главная", image: UIImage(systemName: "eraser"), tag: 2)
+        cartCorrdinator.rootViewController.tabBarItem = UITabBarItem(title: L10n.cart, image: Asset.Images.cart.image, tag: 2)
 
         let profileCoordinator = ProfileCoordinator()
-        profileCoordinator.rootViewController.tabBarItem = UITabBarItem(title: "Главная", image: UIImage(systemName: "eraser"), tag: 3)
+        profileCoordinator.rootViewController.tabBarItem = UITabBarItem(title: L10n.profile, image: Asset.Images.profile.image, tag: 3)
         
         self.init(
             homeRouter: homeCoordinator.strongRouter,

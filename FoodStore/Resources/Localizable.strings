@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  FoodStore
+
+  Created by Andrey Pozdnyakov on 08.07.2023.
+  
+*/
+
+// MARK: TabBar items
+"home" = "Главная";
+"find" = "Поиск";
+"cart" = "Корзина";
+"profile" = "Аккаунт";
+
+// MARK: Buttons
+
+
+// MARK: Home
+"home.bakery" = "Пекарни и кондитерские";
+"home.fasfood" = "Фастфуд";
+"home.asia" = "Азиатская кухня";
+"home.soups" = "Супы";
+
+// MARK: Find
+
+
+// MARK: Cart
+
+
+// MARK: Profile
