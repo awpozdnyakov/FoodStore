@@ -2,7 +2,7 @@
 //  DateView.swift
 //  FoodStore
 //
-//  Created by Наталья Рябкова on 08.07.2023.
+//  Created by Andrey Pozdnyakov on 08.07.2023.
 //
 
 import SwiftUI

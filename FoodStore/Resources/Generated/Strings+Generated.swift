@@ -10,6 +10,8 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+  /// Добавить в корзину
+  internal static let addToCart = L10n.tr("Localizable", "add_to_cart", fallback: "Добавить в корзину")
   /// Корзина
   internal static let cart = L10n.tr("Localizable", "cart", fallback: "Корзина")
   /// Поиск
@@ -19,17 +21,31 @@ internal enum L10n {
   /// 
   ///   Created by Andrey Pozdnyakov on 08.07.2023.
   internal static let home = L10n.tr("Localizable", "home", fallback: "Главная")
+  /// Загрузка данных
+  internal static let loading = L10n.tr("Localizable", "loading", fallback: "Загрузка данных")
+  /// Оплатить %@ ₽
+  internal static func pay(_ p1: Any) -> String {
+    return L10n.tr("Localizable", "pay", String(describing: p1), fallback: "Оплатить %@ ₽")
+  }
+  /// %@ ₽
+  internal static func price(_ p1: Any) -> String {
+    return L10n.tr("Localizable", "price", String(describing: p1), fallback: "%@ ₽")
+  }
   /// Аккаунт
   internal static let profile = L10n.tr("Localizable", "profile", fallback: "Аккаунт")
-  internal enum Home {
-    /// Азиатская кухня
-    internal static let asia = L10n.tr("Localizable", "home.asia", fallback: "Азиатская кухня")
-    /// Пекарни и кондитерские
-    internal static let bakery = L10n.tr("Localizable", "home.bakery", fallback: "Пекарни и кондитерские")
-    /// Фастфуд
-    internal static let fasfood = L10n.tr("Localizable", "home.fasfood", fallback: "Фастфуд")
-    /// Супы
-    internal static let soups = L10n.tr("Localizable", "home.soups", fallback: "Супы")
+  /// С рыбой
+  internal static let tegFour = L10n.tr("Localizable", "teg_four", fallback: "С рыбой")
+  /// Все меню
+  internal static let tegOne = L10n.tr("Localizable", "teg_one", fallback: "Все меню")
+  /// С рисом
+  internal static let tegThree = L10n.tr("Localizable", "teg_three", fallback: "С рисом")
+  /// Салаты
+  internal static let tegTwo = L10n.tr("Localizable", "teg_two", fallback: "Салаты")
+  /// Санкт-Петербург
+  internal static let testTown = L10n.tr("Localizable", "test_town", fallback: "Санкт-Петербург")
+  /// · %@ г
+  internal static func weight(_ p1: Any) -> String {
+    return L10n.tr("Localizable", "weight", String(describing: p1), fallback: "· %@ г")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

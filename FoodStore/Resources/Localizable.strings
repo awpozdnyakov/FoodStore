@@ -13,18 +13,22 @@
 "profile" = "Аккаунт";
 
 // MARK: Buttons
-
+"add_to_cart" = "Добавить в корзину";
+"pay" = "Оплатить %@ ₽";
 
 // MARK: Home
-"home.bakery" = "Пекарни и кондитерские";
-"home.fasfood" = "Фастфуд";
-"home.asia" = "Азиатская кухня";
-"home.soups" = "Супы";
+"teg_one" = "Все меню";
+"teg_two" = "Салаты";
+"teg_three" = "С рисом";
+"teg_four" = "С рыбой";
+"test_town" = "Санкт-Петербург";
+"loading" = "Загрузка данных";
 
 // MARK: Find
 
 
 // MARK: Cart
-
+"price" = "%@ ₽";
+"weight" = "· %@ г";
 
 // MARK: Profile

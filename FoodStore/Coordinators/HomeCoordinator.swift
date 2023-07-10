@@ -11,6 +11,7 @@ import SwiftUI
 
 enum HomeRoute: Route {
     case home
+    case category(String)
 }
 
 class HomeCoordinator: NavigationCoordinator<HomeRoute> {
@@ -23,14 +24,23 @@ class HomeCoordinator: NavigationCoordinator<HomeRoute> {
             
         case .home:
             return .push(buildHomeScreen())
+            
+        case .category(let category):
+            return .push(buildCategoryScreen(category: category))
         }
     }
     
     // MARK: - Build Screens
-
+    
     private func buildHomeScreen() -> UIViewController {
         let viewModel = HomeViewModel(router: unownedRouter)
         let rootView = HomeScreenView(viewModel: viewModel)
+        return UIHostingController(rootView: rootView)
+    }
+    
+    private func buildCategoryScreen(category: String) -> UIViewController {
+        let viewModel = CategoryViewModel(category: category, router: unownedRouter)
+        let rootView = CategoryScreenView(viewModel: viewModel)
         return UIHostingController(rootView: rootView)
     }
 }

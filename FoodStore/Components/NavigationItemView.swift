@@ -12,7 +12,7 @@ struct NavigationItemView: View {
         HStack(alignment: .top) {
             Image(uiImage: Asset.Images.location.image)
             VStack(alignment: .leading) {
-                Text("Санкт-Петербург")
+                Text(L10n.testTown)
                     .font(.system(size: 18, weight: .medium))
                 DateView()
             }

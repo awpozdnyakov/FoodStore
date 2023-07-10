@@ -22,7 +22,7 @@ class ProfileCoordinator: NavigationCoordinator<ProfileRoute> {
             
         case .profile:
             let viewController = UIViewController()
-            viewController.view.backgroundColor = .gray
+            viewController.view.backgroundColor = Asset.Colors.surface.color
             return .push(viewController)
         }
     }

@@ -29,16 +29,15 @@ class MainTabBarCoordinator: TabBarCoordinator<TabBarRoute> {
             UITabBar.appearance().scrollEdgeAppearance = appearance
         }
         
-
         let homeCoordinator = HomeCoordinator()
         homeCoordinator.rootViewController.tabBarItem = UITabBarItem(title: L10n.home, image: Asset.Images.home.image, tag: 0)
         
         let findCoordinator = FindCoordinator()
         findCoordinator.rootViewController.tabBarItem = UITabBarItem(title: L10n.find, image: Asset.Images.find.image, tag: 1)
-
+        
         let cartCorrdinator = CartCoordinator()
         cartCorrdinator.rootViewController.tabBarItem = UITabBarItem(title: L10n.cart, image: Asset.Images.cart.image, tag: 2)
-
+        
         let profileCoordinator = ProfileCoordinator()
         profileCoordinator.rootViewController.tabBarItem = UITabBarItem(title: L10n.profile, image: Asset.Images.profile.image, tag: 3)
         

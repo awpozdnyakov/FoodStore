@@ -1,5 +1,5 @@
 //
-//  Categorys.swift
+//  Categories.swift
 //  FoodStore
 //
 //  Created by Andrey Pozdnyakov on 08.07.2023.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CategorysModel: Decodable {
+struct CategoriesModel: Decodable {
     let сategories: [Category]
 }
 

@@ -21,25 +21,25 @@ struct CategoryCardView: View {
     }
     
     var body: some View {
-            HStack {
-                VStack {
+        HStack {
+            VStack {
                 Text(category.name)
                     .font(.system(size: 20, weight: .regular))
                     .lineLimit(2)
                     .padding(.all, 15)
                 Spacer()
             }
-                Spacer()
-                    }
-            .frame(maxWidth: .infinity)
-                        .frame(height: 148)
+            Spacer()
+        }
+        .frame(maxWidth: .infinity)
+        .frame(height: 148)
         .background(AsyncImage(url: category.imageUrl) { image in
-                    image
-                        .resizable()
-                        .scaledToFill()
-                } placeholder: {
-                    Color(.white)
-                })
+            image
+                .resizable()
+                .scaledToFill()
+        } placeholder: {
+            Color(.white)
+        })
         .cornerRadius(15)
         .onTapGesture {
             action()

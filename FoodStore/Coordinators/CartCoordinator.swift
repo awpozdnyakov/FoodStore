@@ -7,6 +7,7 @@
 
 import XCoordinator
 import UIKit
+import SwiftUI
 
 enum CartRoute: Route {
     case cart
@@ -21,9 +22,13 @@ class CartCoordinator: NavigationCoordinator<CartRoute> {
         switch route {
             
         case .cart:
-            let viewController = UIViewController()
-            viewController.view.backgroundColor = .gray
-            return .push(viewController)
+            return .push(buildCartScreen())
         }
+    }
+    
+    private func buildCartScreen() -> UIViewController {
+        let viewModel = CartViewModel(router: unownedRouter)
+        let rootView = CartScreenView(viewModel: viewModel)
+        return UIHostingController(rootView: rootView)
     }
 }

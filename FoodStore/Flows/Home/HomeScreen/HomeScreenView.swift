@@ -16,13 +16,15 @@ struct HomeScreenView: View {
     }
     
     var body: some View {
-        NavigationView{
-            VStack(spacing: 0) {
-                CategoriesView(сategories: viewModel.сategories, action: {})
+        NavigationStack {
+            VStack {
+                CategoriesView(categories: viewModel.сategories, action: { category in
+                    viewModel.showCategory(category: category.name )
+                })
+                Spacer()
             }
-            .onAppear(perform: viewModel.loadCategorys)
             .padding(.all, 15)
-            Spacer()
+            .onAppear(perform: viewModel.loadCategorys)
         }
         .navigationBarItems(leading: NavigationItemView(), trailing: Image(uiImage: Asset.Images.avatar.image))
     }
