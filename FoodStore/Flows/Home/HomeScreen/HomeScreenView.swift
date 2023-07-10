@@ -16,13 +16,17 @@ struct HomeScreenView: View {
     }
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationStack {
+            VStack {
+                CategoriesView(categories: viewModel.сategories, action: { category in
+                    viewModel.showCategory(category: category.name )
+                })
+                Spacer()
+            }
+            .padding(.all, 15)
+            .onAppear(perform: viewModel.loadCategorys)
         }
-        .padding()
+        .navigationBarItems(leading: NavigationItemView(), trailing: Image(uiImage: Asset.Images.avatar.image))
     }
 }
 
