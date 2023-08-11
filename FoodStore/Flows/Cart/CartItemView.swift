@@ -9,12 +9,18 @@ import SwiftUI
 
 struct CartItemView: View {
     
-    @Binding var cartItem: CartItem
+    @Binding var cartItem: Binding<CartItem>
+    private let addOne: () -> Void
+    private let deleteOne: () -> Void
     
     init(
-        cartItem: Binding<CartItem>
+        cartItem: Binding<CartItem>,
+        addOne: @escaping () -> Void,
+        deleteOne: @escaping () -> Void
     ) {
-        self._cartItem = cartItem
+        self.cartItem = cartItem
+        self.addOne = addOne
+        self.deleteOne = deleteOne
     }
     
     var body: some View {
@@ -40,13 +46,23 @@ struct CartItemView: View {
             }
             .font(.system(size: 14))
             Spacer()
-            Stepper(
-                value: $cartItem.count,
-                in: 1...10,
-                label: { Text("\(cartItem.count)")
-                        .padding(.leading, 30)
-                }
-            )
+            Button(action: {
+                           addOne()
+                       }) {
+                           Image(systemName: "plus")
+                       }
+                       Button(action: {
+                           deleteOne()
+                       }) {
+                           Image(systemName: "minus")
+                       }
+//            Stepper(
+//                value: cartItem.count,
+//                in: 1...10,
+//                label: { Text("\(cartItem.count)")
+//                        .padding(.leading, 30)
+//                }
+//            )
         }
         .padding(.all, 15)
     }
@@ -54,6 +70,6 @@ struct CartItemView: View {
 
 struct CartItemView_Previews: PreviewProvider {
     static var previews: some View {
-        CartItemView(cartItem: .constant(CartItem(id: "", dish: Dish(id: 1, name: "Рыба с овощами и рисом", price: 799, weight: 560, description: "", imageUrl: nil, tegs: []), count: 1)))
+        CartItemView(cartItem: CartItem(id: 1, dish: Dish(id: 6, name: "Mash potato", price: 500, weight: 123, description: "", imageUrl: nil, tegs: []), count: 3), addOne: {}, deleteOne: {})
     }
 }

@@ -11,7 +11,7 @@ struct DishesModel: Decodable {
     let dishes: [Dish]
 }
 
-struct Dish: Decodable, Identifiable {
+struct Dish: Decodable, Identifiable, Equatable {
     let id: Int
     let name: String
     let price: Int

@@ -13,7 +13,7 @@ final class CartViewModel: ObservableObject {
     static let shared = CartViewModel(router: .previewMock())
     
     @Published var cartItems: [CartItem] = []
-    @Published var cartItem: CartItem?
+//    @Published var cartItem: CartItem?
     
     private let router: UnownedRouter<CartRoute>
     
@@ -31,15 +31,21 @@ final class CartViewModel: ObservableObject {
         self.router = router
     }
     
-    func addToCart(_ item: CartItem) {
+    func addOne(_ item: CartItem) {
         if let index = cartItems.firstIndex(where: { $0.id == item.id }) {
-            cartItems[index].count += item.count
-        } else {
-            cartItems.append(item)
+            cartItems[index].count += 1
         }
+        self.objectWillChange.send()
     }
     
-    func removeFromCart(_ item: CartItem) {
+    func deleteOne(_ item: CartItem) {
+        if let index = cartItems.firstIndex(where: { $0.id == item.id }) {
+            cartItems[index].count -= 1
+        }
+        self.objectWillChange.send()
+    }
+    
+    func deleteItem(_ item: CartItem) {
         cartItems.removeAll(where: { $0.id == item.id })
     }
 }

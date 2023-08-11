@@ -19,24 +19,28 @@ struct CartScreenView: View {
     var body: some View {
         NavigationView {
             VStack{
-                List(viewModel.cartItems) { item in
-                    CartItemView(cartItem: $viewModel.cartItems[viewModel.cartItems.firstIndex(of: item)!])
+                CartPageView(cartItems: $viewModel.cartItems) { item in
+                    if let index = viewModel.cartItems.firstIndex(of: item) {
+                        viewModel.addOne(viewModel.cartItems[index])
+                    }
+                } deleteOne: { item in
+                    if let index = viewModel.cartItems.firstIndex(of: item) {
+                        viewModel.deleteOne(viewModel.cartItems[index])
+                    }
                 }
-                .listStyle(.plain)
-                ForEach(viewModel.cartItems) { item in
-                    CartItemView(cartItem: $viewModel.cartItems[viewModel.cartItems.firstIndex(of: item)!])
+                Text(String(viewModel.cartItems.first?.dish.price ?? 123))
+                Spacer()
+                    Button(action: {}) {
+                        Text(L10n.pay(viewModel.cost))
+                            .padding()
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .background(Color.blue)
+                            .cornerRadius(10)
+                    }
+                    .padding(.horizontal, 15)
+                    .padding(.bottom, 10)
                 }
-                Button(action: {}) {
-                    Text(L10n.pay(viewModel.cost))
-                        .padding()
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                }
-                .padding(.horizontal, 15)
-                .padding(.bottom, 10)
-            }
         }
         .navigationBarItems(leading: NavigationItemView(), trailing: Image(uiImage: Asset.Images.avatar.image))
     }

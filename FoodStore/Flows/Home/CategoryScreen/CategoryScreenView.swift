@@ -32,14 +32,7 @@ struct CategoryScreenView: View {
             .navigationBarItems(trailing: Image(uiImage: Asset.Images.avatar.image))
             if viewModel.showDetail {
                 DishDetailView(dish: $viewModel.selectedDish, showDetail: $viewModel.showDetail, action: {
-                    if let itemIndex = CartViewModel.shared.cartItems.firstIndex(where: { $0.dish.id == viewModel.selectedDish.id }) {
-                        CartViewModel.shared.cartItems[itemIndex].count += 1
-                    } else {
-                        let item = CartItem(id: UUID().uuidString,
-                                            dish: viewModel.selectedDish,
-                                            count: 1)
-                        CartViewModel.shared.cartItems.append(item)
-                    }
+                    viewModel.addItem(CartItem(id: $viewModel.selectedDish.id, dish: viewModel.selectedDish, count: 1))
                     viewModel.showDetail = false
                 })
             }

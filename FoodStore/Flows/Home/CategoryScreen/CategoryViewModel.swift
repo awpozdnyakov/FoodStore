@@ -66,4 +66,19 @@ final class CategoryViewModel: ObservableObject {
         self.objectWillChange.send()
     }
     
+    // MARK: - Adding
+    func addItem(_ item: CartItem) {
+        if let itemIndex = CartViewModel.shared.cartItems.firstIndex(where: { $0.dish.id == selectedDish.id }) {
+            CartViewModel.shared.cartItems[itemIndex].count += 1
+            print("_____________")
+            print(CartViewModel.shared.cartItems)
+        } else {
+            let item = CartItem(id: selectedDish.id, dish: selectedDish,
+                                count: 1)
+            CartViewModel.shared.cartItems.append(item)
+            print("_____________")
+            print(CartViewModel.shared.cartItems)
+        }
+        self.objectWillChange.send()
+    }
 }
